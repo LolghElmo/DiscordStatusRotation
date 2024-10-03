@@ -13,7 +13,7 @@ namespace DiscordStatusRotationUI.Services
     public class UpdateChecker
     {
         private static readonly string _repoOwner = "LolghElmo";
-        private static readonly string _repoName = "DiscordStatusRotation";
+        private static readonly string _repoName = "DiscordStatusRotator";
         private static readonly string _apiUrl = $"https://api.github.com/repos/{_repoOwner}/{_repoName}/releases/latest";
 
 
