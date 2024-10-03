@@ -118,9 +118,9 @@ namespace DiscordStatusRotationUI.Forms
                         LabelWarning.ForeColor = Color.Red;
                         LabelWarning.Visible = true;
                     }
-                    else if (totalSeconds < 60)
+                    else if (totalSeconds < 300)
                     {
-                        LabelWarning.Text = "Not Recommended";
+                        LabelWarning.Text = "Recommended: +5 minutes";
                         LabelWarning.ForeColor = Color.Yellow;
                         LabelWarning.Visible = true;
                     }

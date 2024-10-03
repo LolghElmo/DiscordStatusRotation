@@ -167,12 +167,13 @@ namespace DiscordStatusRotationUI.Forms
             // 
             LabelWarning.AutoSize = true;
             LabelWarning.BackColor = Color.Transparent;
+            LabelWarning.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LabelWarning.ForeColor = Color.Yellow;
-            LabelWarning.Location = new Point(392, 0);
+            LabelWarning.Location = new Point(392, -2);
             LabelWarning.Name = "LabelWarning";
-            LabelWarning.Size = new Size(111, 15);
+            LabelWarning.Size = new Size(168, 17);
             LabelWarning.TabIndex = 9;
-            LabelWarning.Text = "Not Recommended";
+            LabelWarning.Text = "Recommended: +5 minutes";
             // 
             // Master
             // 

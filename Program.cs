@@ -11,7 +11,7 @@ namespace DiscordStatusRotationUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UpdateCheck());
+            Application.Run(new Master());
         }
     }
 }
