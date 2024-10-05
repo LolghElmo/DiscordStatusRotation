@@ -20,6 +20,7 @@ namespace DiscordStatusRotationUI.Forms
 
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Master));
             ListBoxStatus = new ListBox();
             TextBoxTokens = new TextBox();
@@ -31,6 +32,11 @@ namespace DiscordStatusRotationUI.Forms
             ButtonAdd = new Button();
             maskedTextBoxTimer = new MaskedTextBox();
             LabelWarning = new Label();
+            notifyIcon1 = new NotifyIcon(components);
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            exitToolStripMenuItem = new ToolStripMenuItem();
+            showToolStripMenuItem = new ToolStripMenuItem();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // ListBoxStatus
@@ -175,6 +181,42 @@ namespace DiscordStatusRotationUI.Forms
             LabelWarning.TabIndex = 9;
             LabelWarning.Text = "Recommended: +5 minutes";
             // 
+            // notifyIcon1
+            // 
+            notifyIcon1.ContextMenuStrip = contextMenuStrip1;
+            notifyIcon1.Icon = (Icon)resources.GetObject("notifyIcon1.Icon");
+            notifyIcon1.Text = "Discord Status Rotator";
+            notifyIcon1.Visible = true;
+            notifyIcon1.MouseDoubleClick += notifyIcon1_MouseDoubleClick;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.BackColor = Color.FromArgb(45, 45, 48);
+            contextMenuStrip1.Font = new Font("Segoe UI", 10F);
+            contextMenuStrip1.ForeColor = Color.WhiteSmoke;
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem, showToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.RenderMode = ToolStripRenderMode.Professional;
+            contextMenuStrip1.Size = new Size(112, 52);
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.BackColor = Color.FromArgb(50, 50, 54);
+            exitToolStripMenuItem.ForeColor = Color.WhiteSmoke;
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(111, 24);
+            exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            // 
+            // showToolStripMenuItem
+            // 
+            showToolStripMenuItem.BackColor = Color.FromArgb(50, 50, 54);
+            showToolStripMenuItem.ForeColor = Color.WhiteSmoke;
+            showToolStripMenuItem.Name = "showToolStripMenuItem";
+            showToolStripMenuItem.Size = new Size(111, 24);
+            showToolStripMenuItem.Text = "Show";
+            showToolStripMenuItem.Click += showToolStripMenuItem_Click;
+            // 
             // Master
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -195,11 +237,14 @@ namespace DiscordStatusRotationUI.Forms
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "Master";
+            Opacity = 0.99D;
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Discord Status Manager";
+            FormClosing += Master_FormClosing;
             Load += Master_Load;
             Paint += Master_Paint;
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -284,5 +329,9 @@ namespace DiscordStatusRotationUI.Forms
         private Button ButtonAdd;
         private MaskedTextBox maskedTextBoxTimer;
         private Label LabelWarning;
+        private NotifyIcon notifyIcon1;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem showToolStripMenuItem;
     }
 }

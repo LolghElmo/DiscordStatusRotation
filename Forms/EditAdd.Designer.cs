@@ -19,6 +19,7 @@ namespace DiscordStatusRotationUI.Forms
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditAdd));
             TextboxStatus = new TextBox();
             ButtonOk = new Button();
             ButtonCancel = new Button();
@@ -101,7 +102,9 @@ namespace DiscordStatusRotationUI.Forms
             Controls.Add(ButtonOk);
             Controls.Add(TextboxStatus);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "EditAdd";
+            Opacity = 0.99D;
             ShowIcon = false;
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;

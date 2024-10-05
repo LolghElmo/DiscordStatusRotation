@@ -7,10 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscordStatusRotationUI", "
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
+		BuildUwpAppX|Any CPU = BuildUwpAppX|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE09B4A6-D915-49AD-9C4C-45045E84DBE0}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{EE09B4A6-D915-49AD-9C4C-45045E84DBE0}.All|Any CPU.Build.0 = Release|Any CPU
+		{EE09B4A6-D915-49AD-9C4C-45045E84DBE0}.BuildUwpAppX|Any CPU.ActiveCfg = Release|Any CPU
+		{EE09B4A6-D915-49AD-9C4C-45045E84DBE0}.BuildUwpAppX|Any CPU.Build.0 = Release|Any CPU
 		{EE09B4A6-D915-49AD-9C4C-45045E84DBE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EE09B4A6-D915-49AD-9C4C-45045E84DBE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE09B4A6-D915-49AD-9C4C-45045E84DBE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
