@@ -11,15 +11,16 @@ namespace DiscordStatusRotationUI.Forms
     public partial class Master : Form
     {
         private readonly StatusDataManager _statusDataManager;
+        private AppConfigManager _appConfig;
         private readonly System.Windows.Forms.Timer _updateTimer;
         private int _currentQuoteIndex;
         private StatusData _statusData;
-
         public Master()
         {
             InitializeComponent();
-            this.Icon = 
             _statusDataManager = new StatusDataManager("Status.json");
+            _appConfig = new AppConfigManager("AppConfig.json");
+
             _updateTimer = new System.Windows.Forms.Timer();
             _updateTimer.Tick += UpdateTimer_Tick;
         }
@@ -28,8 +29,8 @@ namespace DiscordStatusRotationUI.Forms
         {
             InitializeMaster();
             notifyIcon1.Visible = true;
-            AppConfigManager appConfig = new AppConfigManager("AppConfig.json");
-            var config = appConfig.LoadConfigData();
+            var config = _appConfig.LoadConfigData();
+            this.maskedTextBoxTimer.Text = config.TimerSpan;
             this.Text = $"Version: {config.AppVer}";
         }
 
@@ -43,6 +44,9 @@ namespace DiscordStatusRotationUI.Forms
             {
                 StopTimer();
             }
+            var config = _appConfig.LoadConfigData();
+            config.TimerSpan = this.maskedTextBoxTimer.Text;
+            _appConfig.SaveStatusData(config);
         }
 
         private void ButtonAdd_Click(object sender, EventArgs e)

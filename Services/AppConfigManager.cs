@@ -23,7 +23,8 @@ namespace DiscordStatusRotationUI.Services
             {
                 AppConfig defaultData = new AppConfig
                 {
-                    AppVer="0.0.0"
+                    AppVer="0.0.0",
+                    TimerSpan="00:05:00"
                 };
 
                 SaveStatusData(defaultData);

@@ -11,6 +11,8 @@ namespace DiscordStatusRotationUI.Models
     {
         [JsonProperty("app_ver")]
         public string? AppVer { get; set; }
+        [JsonProperty("timer_span")]
+        public string? TimerSpan { get; set; }
 
     }
 }
