@@ -24,7 +24,7 @@ namespace DiscordStatusRotationUI.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Master));
             ListBoxStatus = new ListBox();
             TextBoxTokens = new TextBox();
-            TokensLabel = new Label();
+            linkLabelToken = new LinkLabel();
             ButtonUpdateEnable = new Button();
             TitleLabel = new Label();
             ButtonEdit = new Button();
@@ -33,10 +33,13 @@ namespace DiscordStatusRotationUI.Forms
             maskedTextBoxTimer = new MaskedTextBox();
             LabelWarning = new Label();
             notifyIcon1 = new NotifyIcon(components);
-            contextMenuStrip1 = new ContextMenuStrip(components);
+            contextMenuStripNotify = new ContextMenuStrip(components);
             exitToolStripMenuItem = new ToolStripMenuItem();
             showToolStripMenuItem = new ToolStripMenuItem();
-            contextMenuStrip1.SuspendLayout();
+            pictureBoxKoi = new PictureBox();
+            labelMadeBy = new Label();
+            contextMenuStripNotify.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxKoi).BeginInit();
             SuspendLayout();
             // 
             // ListBoxStatus
@@ -69,16 +72,19 @@ namespace DiscordStatusRotationUI.Forms
             TextBoxTokens.Enter += TextBoxTokens_Enter;
             TextBoxTokens.Leave += TextBoxTokens_Leave;
             // 
-            // TokensLabel
+            // linkLabelToken
             // 
-            TokensLabel.AutoSize = true;
-            TokensLabel.BackColor = Color.Transparent;
-            TokensLabel.ForeColor = Color.LightGray;
-            TokensLabel.Location = new Point(22, 70);
-            TokensLabel.Name = "TokensLabel";
-            TokensLabel.Size = new Size(84, 15);
-            TokensLabel.TabIndex = 2;
-            TokensLabel.Text = "Discord Token:";
+            linkLabelToken.AutoSize = true;
+            linkLabelToken.BackColor = Color.Transparent;
+            linkLabelToken.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            linkLabelToken.LinkColor = Color.FromArgb(40, 153, 243);
+            linkLabelToken.Location = new Point(8, 65);
+            linkLabelToken.Name = "linkLabelToken";
+            linkLabelToken.Size = new Size(107, 21);
+            linkLabelToken.TabIndex = 2;
+            linkLabelToken.TabStop = true;
+            linkLabelToken.Text = "Discord Token";
+            linkLabelToken.LinkClicked += linkLabelToken_LinkClicked;
             // 
             // ButtonUpdateEnable
             // 
@@ -167,7 +173,7 @@ namespace DiscordStatusRotationUI.Forms
             maskedTextBoxTimer.TabIndex = 2;
             maskedTextBoxTimer.Text = "     3";
             maskedTextBoxTimer.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
-            maskedTextBoxTimer.TextChanged += maskedTextBoxTimer_Leave;
+            maskedTextBoxTimer.TextChanged += maskedTextBoxTimer_TextChanged;
             // 
             // LabelWarning
             // 
@@ -175,7 +181,7 @@ namespace DiscordStatusRotationUI.Forms
             LabelWarning.BackColor = Color.Transparent;
             LabelWarning.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LabelWarning.ForeColor = Color.Yellow;
-            LabelWarning.Location = new Point(392, -2);
+            LabelWarning.Location = new Point(392, 0);
             LabelWarning.Name = "LabelWarning";
             LabelWarning.Size = new Size(168, 17);
             LabelWarning.TabIndex = 9;
@@ -183,21 +189,21 @@ namespace DiscordStatusRotationUI.Forms
             // 
             // notifyIcon1
             // 
-            notifyIcon1.ContextMenuStrip = contextMenuStrip1;
+            notifyIcon1.ContextMenuStrip = contextMenuStripNotify;
             notifyIcon1.Icon = (Icon)resources.GetObject("notifyIcon1.Icon");
             notifyIcon1.Text = "Discord Status Rotator";
             notifyIcon1.Visible = true;
             notifyIcon1.MouseDoubleClick += notifyIcon1_MouseDoubleClick;
             // 
-            // contextMenuStrip1
+            // contextMenuStripNotify
             // 
-            contextMenuStrip1.BackColor = Color.FromArgb(45, 45, 48);
-            contextMenuStrip1.Font = new Font("Segoe UI", 10F);
-            contextMenuStrip1.ForeColor = Color.WhiteSmoke;
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem, showToolStripMenuItem });
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.RenderMode = ToolStripRenderMode.Professional;
-            contextMenuStrip1.Size = new Size(112, 52);
+            contextMenuStripNotify.BackColor = Color.FromArgb(45, 45, 48);
+            contextMenuStripNotify.Font = new Font("Segoe UI", 10F);
+            contextMenuStripNotify.ForeColor = Color.WhiteSmoke;
+            contextMenuStripNotify.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem, showToolStripMenuItem });
+            contextMenuStripNotify.Name = "contextMenuStrip1";
+            contextMenuStripNotify.RenderMode = ToolStripRenderMode.Professional;
+            contextMenuStripNotify.Size = new Size(112, 52);
             // 
             // exitToolStripMenuItem
             // 
@@ -217,12 +223,41 @@ namespace DiscordStatusRotationUI.Forms
             showToolStripMenuItem.Text = "Show";
             showToolStripMenuItem.Click += showToolStripMenuItem_Click;
             // 
+            // pictureBoxKoi
+            // 
+            pictureBoxKoi.BackColor = Color.Transparent;
+            pictureBoxKoi.Cursor = Cursors.Hand;
+            pictureBoxKoi.Image = Properties.Resources.Layer_0;
+            pictureBoxKoi.Location = new Point(9, 585);
+            pictureBoxKoi.Name = "pictureBoxKoi";
+            pictureBoxKoi.Size = new Size(24, 24);
+            pictureBoxKoi.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxKoi.TabIndex = 10;
+            pictureBoxKoi.TabStop = false;
+            pictureBoxKoi.Click += pictureBoxKoi_Click;
+            // 
+            // labelMadeBy
+            // 
+            labelMadeBy.AutoSize = true;
+            labelMadeBy.BackColor = Color.Transparent;
+            labelMadeBy.Cursor = Cursors.Hand;
+            labelMadeBy.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelMadeBy.ForeColor = Color.WhiteSmoke;
+            labelMadeBy.Location = new Point(39, 589);
+            labelMadeBy.Name = "labelMadeBy";
+            labelMadeBy.Size = new Size(103, 15);
+            labelMadeBy.TabIndex = 11;
+            labelMadeBy.Text = "Logo made by Koi";
+            labelMadeBy.Click += labelMadeBy_Click;
+            // 
             // Master
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(584, 587);
+            ClientSize = new Size(584, 615);
+            Controls.Add(labelMadeBy);
+            Controls.Add(pictureBoxKoi);
             Controls.Add(LabelWarning);
             Controls.Add(ButtonUpdateEnable);
             Controls.Add(maskedTextBoxTimer);
@@ -230,7 +265,7 @@ namespace DiscordStatusRotationUI.Forms
             Controls.Add(ButtonDelete);
             Controls.Add(ButtonEdit);
             Controls.Add(ListBoxStatus);
-            Controls.Add(TokensLabel);
+            Controls.Add(linkLabelToken);
             Controls.Add(TextBoxTokens);
             Controls.Add(TitleLabel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -244,7 +279,8 @@ namespace DiscordStatusRotationUI.Forms
             FormClosing += Master_FormClosing;
             Load += Master_Load;
             Paint += Master_Paint;
-            contextMenuStrip1.ResumeLayout(false);
+            contextMenuStripNotify.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBoxKoi).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -319,9 +355,11 @@ namespace DiscordStatusRotationUI.Forms
 
         #endregion
 
+        private PictureBox pictureBoxKoi;
+        private Label labelMadeBy;
         private ListBox ListBoxStatus;
         private TextBox TextBoxTokens;
-        private Label TokensLabel;
+        private LinkLabel linkLabelToken;
         private Button ButtonUpdateEnable;
         private Label TitleLabel;
         private Button ButtonEdit;
@@ -330,7 +368,7 @@ namespace DiscordStatusRotationUI.Forms
         private MaskedTextBox maskedTextBoxTimer;
         private Label LabelWarning;
         private NotifyIcon notifyIcon1;
-        private ContextMenuStrip contextMenuStrip1;
+        private ContextMenuStrip contextMenuStripNotify;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem showToolStripMenuItem;
     }

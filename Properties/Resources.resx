@@ -121,8 +121,8 @@
   <data name="screw-driver (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\screw-driver (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="trashbin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\trashbin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="screw-driver (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\screw-driver (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="screw-driver (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\screw-driver (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,10 +133,13 @@
   <data name="screw-driver (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\screw-driver (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="screw-driver (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\screw-driver (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="trashbin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trashbin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="plus-symbol-button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plus-symbol-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Layer 0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Layer 0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

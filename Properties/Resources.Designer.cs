@@ -63,6 +63,16 @@ namespace DiscordStatusRotationUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Layer_0 {
+            get {
+                object obj = ResourceManager.GetObject("Layer 0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap plus_symbol_button {
             get {
                 object obj = ResourceManager.GetObject("plus-symbol-button", resourceCulture);
