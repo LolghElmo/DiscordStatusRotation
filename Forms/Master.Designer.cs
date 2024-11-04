@@ -287,13 +287,17 @@ namespace DiscordStatusRotationUI.Forms
 
         private void Master_Paint(object sender, PaintEventArgs e)
         {
-            var brush = new LinearGradientBrush(this.ClientRectangle,
-                Color.FromArgb(28, 28, 28), Color.FromArgb(30, 30, 30), 90F);
-            e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            if (this.Width != 0)
+            {
+                var brush = new LinearGradientBrush(this.ClientRectangle,
+                    Color.FromArgb(28, 28, 28), Color.FromArgb(30, 30, 30), 90F);
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
         }
 
         private void DrawGradientButton(object sender, PaintEventArgs e, Color color1, Color color2)
         {
+
             Button btn = sender as Button;
             using (LinearGradientBrush brush = new LinearGradientBrush(btn.ClientRectangle, color1, color2, 90F))
             {
