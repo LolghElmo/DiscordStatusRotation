@@ -25,7 +25,7 @@ This project is a **Discord Status Rotator** built with **.NET 8.0**. It allows 
 
 ## JSON File Structure
 
-Once your token and statuses are saved, the project stores them in a `.json` file. The structure of the file looks like this:
+Once your token and statuses are saved, the project stores them in  `.json` file. The structure of the file looks like this:
 
 ```json
 {
