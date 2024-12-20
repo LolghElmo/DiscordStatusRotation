@@ -305,17 +305,22 @@ namespace DiscordStatusRotationUI.Forms
                 int totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
                 if (totalSeconds < 3)
                 {
-                    maskedTextBoxTimer.Text = "00:00:03";
                     maskedTextBoxTimer.BorderStyle = BorderStyle.FixedSingle;
                     ShowWarning("Risk of Ban!", Color.Red);
+                    ButtonUpdateEnable.Enabled = false;
+                    ButtonUpdateEnable.BackColor = Color.Gray;
                 }
-                else if (totalSeconds < 300)
+                else if (totalSeconds < 300 && totalSeconds >= 3)
                 {
                     ShowWarning("Recommended: +5 minutes", Color.Yellow);
+                    ButtonUpdateEnable.Enabled = true;
+                    ButtonUpdateEnable.BackColor = Color.Red;
                 }
                 else
                 {
                     LabelWarning.Visible = false;
+                    ButtonUpdateEnable.Enabled = true;
+
                 }
 
                 maskedTextBoxTimer.Text = $"{hours:00}:{minutes:00}:{seconds:00}";
